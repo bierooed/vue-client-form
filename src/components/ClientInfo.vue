@@ -24,17 +24,48 @@
         ($event) => updateLastName($event, formAttributes.middleName)
       "
     />
+
+    <div>
+      <label>Дата рождения</label>
+      <input
+        type="date"
+        @change="($event) => updateLastName($event, formAttributes.birthDate)"
+      />
+    </div>
+
+    <FormSelector
+      :list="gender"
+      :handleChange="($event) => updateLastName($event, formAttributes.gender)"
+    />
   </div>
 </template>
 
 <script>
 import TextInput from "./FormElements/TextInput.vue";
+import FormSelector from "./FormElements/FormSelector.vue";
 import formAttributes from "../formAttributes";
 
 export default {
   name: "ClientInfo",
   data() {
     return {
+      gender: [
+        {
+          id: 0,
+          value: "Мужчина",
+        },
+        { id: 1, value: "Женщина" },
+      ],
+      clientGroup: [
+        { id: 0, value: "VIP" },
+        { id: 1, value: "Проблемные" },
+        { id: 2, value: "ОМС" },
+      ],
+      treatingDoctors: [
+        { id: 0, value: "Иванов" },
+        { id: 1, value: "Захаров" },
+        { id: 2, value: "Чернышева" },
+      ],
       formAttributes,
     };
   },
@@ -50,6 +81,7 @@ export default {
 
   components: {
     TextInput,
+    FormSelector,
   },
 };
 </script>

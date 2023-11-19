@@ -1,7 +1,8 @@
 <template>
   <div>
     Client form
-    {{ client.lastName }} - {{ client.firstName }} - {{ client.middleName }}
+    {{ client.lastName }} - {{ client.firstName }} - {{ client.middleName }} -
+    {{ client.birthDate }} - {{ client.gender }}
     <ClientInfo :client="client" @update-client="updateClient" />
   </div>
 </template>
@@ -12,7 +13,9 @@ export default {
   name: "ClientForm",
   data() {
     return {
-      client: {},
+      client: {
+        gender: "Мужчина",
+      },
     };
   },
 
