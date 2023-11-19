@@ -1,0 +1,29 @@
+<template>
+  <div>
+    Client form
+    {{ client.lastName }}
+    <ClientInfo :client="client" @update-client="updateClient" />
+  </div>
+</template>
+
+<script>
+import ClientInfo from "./ClientInfo.vue";
+export default {
+  name: "ClientForm",
+  data() {
+    return {
+      client: {},
+    };
+  },
+
+  methods: {
+    updateClient(updatedClient) {
+      console.log("Heyyy");
+      this.client = { ...this.client, ...updatedClient };
+    },
+  },
+  components: {
+    ClientInfo,
+  },
+};
+</script>
