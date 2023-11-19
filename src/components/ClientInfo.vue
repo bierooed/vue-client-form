@@ -34,8 +34,18 @@
     </div>
 
     <FormSelector
+      label="Пол"
       :list="gender"
       :handleChange="($event) => updateLastName($event, formAttributes.gender)"
+    />
+
+    <FormSelector
+      label="Группа Клиентов"
+      :isMultiple="true"
+      :list="clientGroup"
+      :handleChange="
+        ($event) => updateLastName($event, formAttributes.clientGroup)
+      "
     />
   </div>
 </template>
