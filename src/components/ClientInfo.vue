@@ -5,7 +5,7 @@
       label="Last Name"
       placeholder="Last Name"
       :handleChange="
-        ($event) => updateLastName($event, formAttributes.lastName)
+        ($event) => updateClientInfo($event, formAttributes.lastName)
       "
     />
 
@@ -13,7 +13,7 @@
       label="First Name"
       placeholder="First Name"
       :handleChange="
-        ($event) => updateLastName($event, formAttributes.firstName)
+        ($event) => updateClientInfo($event, formAttributes.firstName)
       "
     />
 
@@ -21,7 +21,7 @@
       label="Middle Name"
       placeholder="Middle Name"
       :handleChange="
-        ($event) => updateLastName($event, formAttributes.middleName)
+        ($event) => updateClientInfo($event, formAttributes.middleName)
       "
     />
 
@@ -29,14 +29,16 @@
       <label>Дата рождения</label>
       <input
         type="date"
-        @change="($event) => updateLastName($event, formAttributes.birthDate)"
+        @change="($event) => updateClientInfo($event, formAttributes.birthDate)"
       />
     </div>
 
     <FormSelector
       label="Пол"
       :list="gender"
-      :handleChange="($event) => updateLastName($event, formAttributes.gender)"
+      :handleChange="
+        ($event) => updateClientInfo($event, formAttributes.gender)
+      "
     />
 
     <FormSelector
@@ -44,7 +46,7 @@
       :isMultiple="true"
       :list="clientGroup"
       :handleChange="
-        ($event) => updateLastName($event, formAttributes.clientGroup)
+        ($event) => updateClientInfo($event, formAttributes.clientGroup)
       "
     />
   </div>
@@ -83,7 +85,7 @@ export default {
     client: Object,
   },
   methods: {
-    updateLastName(e, key) {
+    updateClientInfo(e, key) {
       console.log("updated");
       this.$emit("update-client", { [key]: e.target.value });
     },
