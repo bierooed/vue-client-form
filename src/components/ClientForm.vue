@@ -2,7 +2,10 @@
   <div>
     Client form
     {{ client.lastName }} - {{ client.firstName }} - {{ client.middleName }} -
-    {{ client.birthDate }} - {{ client.gender }} - {{ client.treatingDoctors }}
+    {{ client.birthDate }} - {{ client.gender }} -
+    {{ client.treatingDoctors }}
+
+    <p v-if="client.sms">Do not send SMS</p>
     <ClientInfo :client="client" @update-client="updateClient" />
   </div>
 </template>

@@ -6,5 +6,6 @@ const formAttributes = {
   gender: "gender",
   clientGroup: "clientGroup",
   treatingDoctors: "treatingDoctors",
+  sms: "sms",
 };
 export default formAttributes;

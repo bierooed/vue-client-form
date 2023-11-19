@@ -56,18 +56,29 @@
         ($event) => updateClientInfo($event, formAttributes.treatingDoctors)
       "
     />
+
+    <FormCheckbox
+      label="Не отправлять СМС"
+      v-model="checkboxState"
+      :handleChange="
+        ($event) => updateCheckbox($event.target.checked, formAttributes.sms)
+      "
+    />
   </div>
 </template>
 
 <script>
 import TextInput from "./FormElements/TextInput.vue";
 import FormSelector from "./FormElements/FormSelector.vue";
+import FormCheckbox from "./FormElements/FormCheckbox.vue";
+
 import formAttributes from "../formAttributes";
 
 export default {
   name: "ClientInfo",
   data() {
     return {
+      checkboxState: false,
       gender: [
         {
           id: 0,
@@ -97,6 +108,10 @@ export default {
       this.$emit("update-client", { [key]: e.target.value });
     },
 
+    updateCheckbox(isActive, key) {
+      this.$emit("update-client", { [key]: isActive });
+    },
+
     updateMultipleSelectors() {
       console.log("Not yet added handle function(");
     },
@@ -105,6 +120,7 @@ export default {
   components: {
     TextInput,
     FormSelector,
+    FormCheckbox,
   },
 };
 </script>
