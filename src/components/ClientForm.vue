@@ -1,7 +1,7 @@
 <template>
   <div>
     Client form
-    {{ client.lastName }}
+    {{ client.lastName }} - {{ client.firstName }} - {{ client.middleName }}
     <ClientInfo :client="client" @update-client="updateClient" />
   </div>
 </template>
