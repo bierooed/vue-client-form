@@ -5,5 +5,6 @@ const formAttributes = {
   birthDate: "birthDate",
   gender: "gender",
   clientGroup: "clientGroup",
+  treatingDoctors: "treatingDoctors",
 };
 export default formAttributes;

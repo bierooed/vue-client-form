@@ -41,12 +41,19 @@
       "
     />
 
+    <!-- Add multiple input handling  -->
     <FormSelector
       label="Группа Клиентов"
+      :handleChange="updateMultipleSelectors"
       :isMultiple="true"
       :list="clientGroup"
+    />
+
+    <FormSelector
+      label="Лечащий врач"
+      :list="treatingDoctors"
       :handleChange="
-        ($event) => updateClientInfo($event, formAttributes.clientGroup)
+        ($event) => updateClientInfo($event, formAttributes.treatingDoctors)
       "
     />
   </div>
@@ -88,6 +95,10 @@ export default {
     updateClientInfo(e, key) {
       console.log("updated");
       this.$emit("update-client", { [key]: e.target.value });
+    },
+
+    updateMultipleSelectors() {
+      console.log("Not yet added handle function(");
     },
   },
 

@@ -2,19 +2,21 @@
   <div>
     Client form
     {{ client.lastName }} - {{ client.firstName }} - {{ client.middleName }} -
-    {{ client.birthDate }} - {{ client.gender }}
+    {{ client.birthDate }} - {{ client.gender }} - {{ client.treatingDoctors }}
     <ClientInfo :client="client" @update-client="updateClient" />
   </div>
 </template>
 
 <script>
+import formAttributes from "@/formAttributes";
 import ClientInfo from "./ClientInfo.vue";
 export default {
   name: "ClientForm",
   data() {
     return {
       client: {
-        gender: "Мужчина",
+        [formAttributes.gender]: "Мужчина",
+        [formAttributes.treatingDoctors]: "Иванов",
       },
     };
   },
